@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
 
 app.use('/graphiql', expressGraphQL({
     schema:schema,
-    graphiql: true
+    // graphiql: true
 }));
 
 app.listen(8080, () => {
