@@ -1,11 +1,15 @@
 // eslint-disable-next-line
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import CardDisplay from './CardDisplay';
+import { GET_ALL } from './Query';
+import { gql, useQuery } from '@apollo/client';
 
-class ListPage extends Component {
-    render() {
+
+const ListPage = () => {
+    GET_ALL();
+    
         return (
             <div>
                 <div>
@@ -14,7 +18,7 @@ class ListPage extends Component {
                             <h1>This is title</h1>
                         </Grid>
                         <Grid item xs={4} align="center">
-                            <Link to='/books' style={{textDecoration: 'none'}}>
+                            <Link to='/list_books' style={{textDecoration: 'none'}}>
                                 <CardDisplay title={'Books'} subtitle={''}/>
                             </Link>
                         </Grid>
@@ -34,6 +38,6 @@ class ListPage extends Component {
             </div>
         )
     }
-}
+
 
 export default ListPage;

@@ -4,9 +4,26 @@ import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import axios from 'axios';
 
 
-class ListPage extends Component {
+class ShowPage extends Component {
+    async componentDidMount() {
+        axios.post({
+            url: 'api/graphql',
+            data: {
+              query: `{
+                books {
+                  BookTitle
+                  _id
+                }
+              }`
+            }
+          }).then((result) => {
+            console.log(result.data)
+          });
+    }
+
     render() {
         return (
             <div>
@@ -20,14 +37,14 @@ class ListPage extends Component {
                             </Box>
                         </Grid>
                         <Grid item xs={6}>
-                            <Typography variant='h5'> 
-                                <h1>Title</h1>
+                            <Typography variant='h1'> 
+                                Title
                             </Typography>
-                            <Typography variant='subtitle1'> 
-                                <h1>Author</h1>
+                            <Typography variant='h2'> 
+                                Author
                             </Typography>
-                            <Typography variant='caption'> 
-                                <h1>Genre</h1>
+                            <Typography variant='h4'> 
+                                Genre
                             </Typography>
                             <p>Testing desc</p>
                         </Grid>
@@ -40,4 +57,4 @@ class ListPage extends Component {
     }
 }
 
-export default ListPage;
+export default ShowPage;
