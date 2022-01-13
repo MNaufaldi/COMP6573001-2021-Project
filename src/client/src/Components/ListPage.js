@@ -8,8 +8,23 @@ import { gql, useQuery } from '@apollo/client';
 
 
 const ListPage = () => {
-    GET_ALL();
-    
+    const getData = () => {
+        const { loading, error, data } = GET_ALL(); 
+        if(loading) {
+            // console.log('loading')
+            return 'loading'
+        }
+        if(error) {
+            console.log(error);
+            // console.error('error');
+        }
+        return ( 
+        <Grid item xs={4} align="center">
+            <CardDisplay title={'Foods'} subtitle={''}/>
+        </Grid>
+        )
+    }
+
         return (
             <div>
                 <div>
@@ -27,11 +42,7 @@ const ListPage = () => {
                                 <CardDisplay title={'Cats'} subtitle={''}/>
                             </Link>
                         </Grid>
-                        <Grid item xs={4} align="center">
-                            <Link to='/foods' style={{textDecoration: 'none'}}>
-                                <CardDisplay title={'Foods'} subtitle={''}/>
-                            </Link>
-                        </Grid>
+                        {getData()}
                     </Grid>
                 </div>
 
