@@ -13,6 +13,7 @@ const BookType = new GraphQLObjectType({
         AuthorID: {type: new GraphQLNonNull(GraphQLString)},
         Genre: {type: new GraphQLNonNull(GraphQLString)},
         Cover: {type: new GraphQLNonNull(GraphQLString)},
+        Desc: {type: new GraphQLNonNull(GraphQLString)},
         Author: {type: require('./AuthorType'), resolve: async function (book) {
             var author = await Authors.findById(mongoose.Types.ObjectId(book.AuthorID))
             if(!author) {
