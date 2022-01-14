@@ -18,6 +18,10 @@ const BookSchema = new Schema({
     Cover: {
         type: String,
         required: true
+    },
+    Desc: {
+        type: String,
+        required: true
     }
 }, {collection: 'Books'});
 

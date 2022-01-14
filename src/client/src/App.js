@@ -11,9 +11,16 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path='/list_books' element={ <ShowPage/> }/>
-        <Route exact path='/' element={ <ListPage/> }/>
+      <Route exact path='/' element={ <ListPage/> }/>
 
+        <Route exact path='/books/:id' element={ <ShowPage/> }/>
+        <Route exact path='/books' element={ <ListPage/> }/>
+
+        <Route exact path='/foods/:id' element={ <ShowPage/> }/>
+        <Route exact path='/foods' element={ <ListPage/> }/>
+
+        <Route exact path='/cats/:id' element={ <ShowPage/> }/>
+        <Route exact path='/cats' element={ <ListPage/> }/>
       </Routes>
     </Router>
    

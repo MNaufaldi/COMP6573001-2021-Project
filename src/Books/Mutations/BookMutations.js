@@ -22,6 +22,10 @@ const addBook = {
         Cover: {
             name: 'Cover',
             type: new GraphQLNonNull(GraphQLString)
+        },
+        Desc: {
+            name: 'Desc',
+            type: new GraphQLNonNull(GraphQLString)
         }
     },
     resolve: async function (parent, args) {
@@ -56,6 +60,10 @@ const updateBook = {
         Cover: {
             name: 'Cover',
             type: new GraphQLNonNull(GraphQLString)
+        },
+        Desc: {
+            name: 'Desc',
+            type: new GraphQLNonNull(GraphQLString)
         }
     },
     resolve: async function (parent, args) {
@@ -71,6 +79,9 @@ const updateBook = {
         }
         if (args.Cover) {
             updates.Cover = args.Cover;
+        }
+        if (args.Desc) {
+            updates.Desc = args.Desc;
         }
         const updAuthor = await Books.findByIdAndUpdate(args._id, updates, {new: true})
         if(!updAuthor) {
