@@ -7,7 +7,7 @@ import { GET_BOOK } from './Query';
 import { useParams } from 'react-router-dom';
 
 
-const ShowPage = (state) => {
+const ShowPage = () => {
     const { id } = useParams();
 
     const createPage = (book) => {

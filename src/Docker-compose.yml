@@ -15,6 +15,26 @@ services:
     env_file:
       - .env
 
+  fservice:
+    build: 
+      dockerfile: Dockerfile.dev
+      context: ./Food
+    volumes:
+      - /app/node_modules
+      - ./Food:/app
+    env_file:
+      - .env
+
+  cservice:
+    build: 
+      dockerfile: Dockerfile.dev
+      context: ./Cat
+    volumes:
+      - /app/node_modules
+      - ./Cat:/app
+    env_file:
+      - .env
+
   client:
     stdin_open: true
     build:
@@ -30,6 +50,8 @@ services:
     depends_on:
       - client
       - bservice
+      - cservice
+      - fservice
     restart: always
     build: 
       dockerfile: Dockerfile.dev
