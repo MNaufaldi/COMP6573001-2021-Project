@@ -54,4 +54,4 @@ And it will start in localhost:3090
 # Resources
 I will be using Docker. for load balancer I will be using nginx. I am following the tutorial from [Udemy Link](https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/) Although this tutorial creates a project about fibonacci and a lot of the materials are deprecated.
 
-I also followed [Github repo] (https://github.com/fChristenson/microservices-example/tree/master/web) as a reference too.
+I also followed [Github repo](https://github.com/fChristenson/microservices-example/tree/master/web) as a reference too.
