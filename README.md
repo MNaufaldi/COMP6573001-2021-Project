@@ -45,10 +45,10 @@ Each collections have 5 graphql query which is:
 
 # Running the code
 After creating .env file inside src folder. You can run:
-'''
+```
 docker-compose build
 docker-compose up
-'''
+```
 And it will start in localhost:3090
 
 # Resources
