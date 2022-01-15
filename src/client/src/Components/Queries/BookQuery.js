@@ -45,14 +45,16 @@ function GET_AUTHOR_LIST() {
     return useQuery(QUERY);
 }
 
-function GET_AUTHOR(_id) {
-    const QUERY = gql`{
-        author(id:_id){
-          AuthorName
+function GET_AUTHOR(id) {
+    const QUERY = gql`
+    query author($id: String!) {
+        author(id: $id) {
+            AuthorName
         }
-      }`
-
-    return useQuery(QUERY);
+    }`
+    return useQuery(QUERY, {
+        variables: {id}
+    });
 }
 
 

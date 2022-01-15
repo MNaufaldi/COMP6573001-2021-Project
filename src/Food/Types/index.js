@@ -36,7 +36,7 @@ const RootQueryType = new GraphQLObjectType ({
                 return types;
             }
         },
-        type: {
+        Type: {
             type: TypeType,
             description: 'Singular type',
             args: {
