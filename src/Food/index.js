@@ -11,7 +11,7 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 
-const mongourl = process.env.MONGO_URLB;
+const mongourl = process.env.MONGO_URLF;
 mongoose.connect(mongourl,{ useNewUrlParser: true },(err) => {
     if(err) {
         console.log(err);

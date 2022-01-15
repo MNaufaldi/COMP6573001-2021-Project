@@ -1,0 +1,15 @@
+{
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "*",
+        "express": "*",
+        "express-graphql": "*",
+        "graphql": "*",
+        "mongoose": "*",
+        "nodemon": "^2.0.15"
+    },
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon index.js"
+    }
+}

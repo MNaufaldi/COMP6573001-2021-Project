@@ -7,14 +7,14 @@ import { CardActionArea, CardMedia } from '@mui/material';
 class CardDisplay extends Component{
     render() {
         return (
-            <Card sx={{ maxWidth: 300 }} align="left">
+            <Card sx={{ width: 300, height: 200 }} align="left">
               <CardActionArea>
                 <CardContent>
                   <div style={{ display:'flex', justifyContent:'center' }}> 
                     <CardMedia
                           component="img"
-                          alt="Book Cover"
-                          sx={{ width: 150 }}
+                          alt="Image"
+                          sx={{ width: 200, height: 125 }}
                           image={this.props.cover}
                           align='center'
                         />
