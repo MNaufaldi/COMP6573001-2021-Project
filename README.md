@@ -16,7 +16,7 @@ Tech that are used in this project are:
 2. Node and express
 3. Graphql
 4. Mongodb
-5. Nginx
+5. Kubernetes
 6. Docker
 
 # Backend
@@ -26,8 +26,8 @@ The backend will be using express, graphql, and mongo following the tutorial fro
 # Frontend
 Frontend will be using React with axios that will connect to the backend. Despite having the create functions in the backend and query file, there are no features for that and it is solely for adding data manually through graphql interface. 
 
-# Nginx
-Nginx will reroute every request and modify the link towards the corresponding services. For example, the frontend will request to /api/(service)/graphql. The nginx will direct the request to the service and delete the /api/(service) part of the uri since it is no longer necessary.
+# Docker and Kubernetes
+I am following the tutorial from [Udemy Link](https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/) Although this tutorial creates a project about fibonacci and a lot of the materials are deprecated.
 
 # MongoDb and graphql
 I am using mongo alongside graphql for this project. The main reason is that it doesn't require the structure that sql provides. There are 3 mongo databases which should be connected through the .env file following the example of sample.env.
@@ -46,12 +46,12 @@ Each collections have 5 graphql query which is:
 # Running the code
 After creating .env file inside src folder. You can run:
 ```
-docker-compose build
-docker-compose up
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.0/deploy/static/provider/cloud/deploy.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.4.0/aio/deploy/recommended.yaml
+kubectl apply -f k8s
 ```
-And it will start in localhost:3090
+Access http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/ and then use the token option and fill in the token.
+And it will start in localhost
 
 # Resources
-I will be using Docker. for load balancer I will be using nginx. I am following the tutorial from [Udemy Link](https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/) Although this tutorial creates a project about fibonacci and a lot of the materials are deprecated.
-
 I also followed [Github repo](https://github.com/fChristenson/microservices-example/tree/master/web) as a reference too.
