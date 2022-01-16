@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bservice-deployment
+spec:
+  replicas: 3
+  selector: 
+    matchLabels:
+      component: bservice
+  template:
+    metadata:
+      labels:
+        component: bservice
+    spec:
+      containers:
+      - name: bservice
+        image: munaufaldi/project-bservice
+        ports: 
+          - containerPort: 5000 
+        env:
+        - name: MONGO_URLB
+          value: "mongodb+srv://CloudProject:CloudProject@books.3r4hh.mongodb.net/Books?retryWrites=true&w=majority"
+          

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fservice-deployment
+spec:
+  replicas: 3
+  selector: 
+    matchLabels:
+      component: fservice
+  template:
+    metadata:
+      labels:
+        component: fservice
+    spec:
+      containers:
+      - name: fservice
+        image: munaufaldi/project-fservice
+        ports: 
+          - containerPort: 5000 
+        env:
+        - name: MONGO_URLF
+          value: "mongodb+srv://CloudProject:CloudProject@books.3r4hh.mongodb.net/Foods?retryWrites=true&w=majority"
+          

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cservice-deployment
+spec:
+  replicas: 3
+  selector: 
+    matchLabels:
+      component: cservice
+  template:
+    metadata:
+      labels:
+        component: cservice
+    spec:
+      containers:
+      - name: cservice
+        image: munaufaldi/project-cservice
+        ports: 
+          - containerPort: 5000 
+        env:
+        - name: MONGO_URLC
+          value: "mongodb+srv://CloudProject:CloudProject@books.3r4hh.mongodb.net/Cats?retryWrites=true&w=majority"
+          
